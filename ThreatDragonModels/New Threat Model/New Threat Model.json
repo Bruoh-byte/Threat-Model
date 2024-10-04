@@ -19,56 +19,6 @@
         "cells": [
           {
             "position": {
-              "x": 485.99999999999864,
-              "y": -440.99999999999625
-            },
-            "size": {
-              "width": 890,
-              "height": 320
-            },
-            "shape": "trust-boundary-box",
-            "attrs": {
-              "headerText": {
-                "text": "Our Application"
-              }
-            },
-            "id": "c2dfc938-b23f-4910-9bc2-e59c7ff91875",
-            "zIndex": -1,
-            "data": {
-              "type": "tm.BoundaryBox",
-              "name": "Our Application",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "position": {
-              "x": 304,
-              "y": -278.99999999999983
-            },
-            "size": {
-              "width": 180,
-              "height": 160
-            },
-            "shape": "trust-boundary-box",
-            "attrs": {
-              "headerText": {
-                "text": "Part of Our Application"
-              }
-            },
-            "id": "49d75cbc-07f5-47d3-8bef-de30f89603b9",
-            "zIndex": -1,
-            "data": {
-              "type": "tm.BoundaryBox",
-              "name": "Part of Our Application",
-              "description": "",
-              "isTrustBoundary": true,
-              "hasOpenThreats": false
-            }
-          },
-          {
-            "position": {
               "x": 520,
               "y": -260
             },
@@ -1416,6 +1366,56 @@
               {
                 "x": 230,
                 "y": -220
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Sends Ads to App",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "e89a63f9-1e29-46ef-a515-e3c21d35d8f2",
+            "source": {
+              "x": 850,
+              "y": -80
+            },
+            "target": {
+              "x": 820,
+              "y": -130
+            },
+            "labels": [
+              "Sends Ads to App"
+            ],
+            "vertices": [
+              {
+                "x": 810,
+                "y": -100
               }
             ]
           },
