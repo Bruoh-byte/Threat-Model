@@ -1436,6 +1436,35 @@
             ]
           },
           {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "ca7bd199-eecc-4cb2-8d2f-8b2219784536",
+            "source": {
+              "x": 510,
+              "y": -260
+            },
+            "target": {
+              "x": 520,
+              "y": -470
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": -370
+              }
+            ]
+          },
+          {
             "position": {
               "x": 83.75,
               "y": -390
