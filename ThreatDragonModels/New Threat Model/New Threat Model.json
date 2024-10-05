@@ -38,8 +38,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "42318a4c-5bd1-44db-9c2b-6552db847b1e",
             "zIndex": 1,
+            "id": "42318a4c-5bd1-44db-9c2b-6552db847b1e",
             "data": {
               "type": "tm.Process",
               "name": "Event List",
@@ -75,8 +75,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "c51eda49-78e9-4d74-9c6b-91c0f1451421",
             "zIndex": 2,
+            "id": "c51eda49-78e9-4d74-9c6b-91c0f1451421",
             "data": {
               "type": "tm.Process",
               "name": "Central App Menu",
@@ -115,8 +115,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "18872574-1333-467a-97ba-4c36a3d198e1",
             "zIndex": 4,
+            "id": "18872574-1333-467a-97ba-4c36a3d198e1",
             "data": {
               "type": "tm.Store",
               "name": "Advertisers Database",
@@ -153,8 +153,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "8fa69cca-a8e5-46e0-89b1-616552e6cbcd",
             "zIndex": 5,
+            "id": "8fa69cca-a8e5-46e0-89b1-616552e6cbcd",
             "data": {
               "type": "tm.Process",
               "name": "Event Collection API",
@@ -183,24 +183,42 @@
                 "text": "Users"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
-            "id": "776a4783-1e74-432c-8e9c-56c058a45eed",
             "zIndex": 6,
+            "id": "776a4783-1e74-432c-8e9c-56c058a45eed",
             "data": {
               "type": "tm.Actor",
               "name": "Users",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Spoofing/Impersonation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Malicious Actors could spoof Users through phishing or other social engineering methods",
+                  "mitigation": "2FA and MFA access",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -217,31 +235,53 @@
                 "text": "Event Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
-            "id": "39b0fdb8-2b20-41f2-8453-c30ba46793e0",
             "zIndex": 7,
+            "id": "39b0fdb8-2b20-41f2-8453-c30ba46793e0",
             "data": {
               "type": "tm.Store",
               "name": "Event Database",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": true,
               "isSigned": false,
               "storesCredentials": true,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Data Tampering",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Malicious actors could gain access to the database and attempt to create or alter existing events to create disorder (Affects Event Collection API)",
+                  "mitigation": "2FA or MFA for access to the database, alongside verification of data entered into the database by a dedicated team before being pushed to the app. Have a audit trail if events that go through can be traced.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -402,56 +442,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Hijacks Login ",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "7f8660bb-f4e9-4897-8b79-c6ca7eaf0976",
-            "source": {
-              "x": 460,
-              "y": -493
-            },
-            "target": {
-              "x": 520,
-              "y": -460
-            },
-            "vertices": [
-              {
-                "x": 500,
-                "y": -520
-              }
-            ],
-            "labels": [
-              "Hijacks Login "
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "User Sends Login Information",
               "description": "",
               "outOfScope": false,
@@ -464,6 +454,9 @@
               "threats": []
             },
             "id": "ae264bb2-b981-49bf-aa07-f7ec6d10a236",
+            "labels": [
+              "User Sends Login Information"
+            ],
             "source": {
               "x": 460,
               "y": -410
@@ -477,9 +470,6 @@
                 "x": 510,
                 "y": -450
               }
-            ],
-            "labels": [
-              "User Sends Login Information"
             ]
           },
           {
@@ -514,6 +504,9 @@
               "threats": []
             },
             "id": "8fbdd24d-d65d-4efc-9265-b0908c62a609",
+            "labels": [
+              "Returns User Success/Failure"
+            ],
             "source": {
               "x": 570,
               "y": -350
@@ -531,9 +524,6 @@
                 "x": 480,
                 "y": -330
               }
-            ],
-            "labels": [
-              "Returns User Success/Failure"
             ]
           },
           {
@@ -568,6 +558,9 @@
               "threats": []
             },
             "id": "45bd71ab-b866-4f3c-84fa-0a94f2dce754",
+            "labels": [
+              "Directs Information/Cookies to rest of App"
+            ],
             "source": {
               "x": 646,
               "y": -373
@@ -575,10 +568,7 @@
             "target": {
               "x": 720,
               "y": -300
-            },
-            "labels": [
-              "Directs Information/Cookies to rest of App"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -612,6 +602,9 @@
               "threats": []
             },
             "id": "0cea6c27-770f-48f7-8642-431163559401",
+            "labels": [
+              "Lists Events"
+            ],
             "source": {
               "x": 590,
               "y": -260
@@ -625,9 +618,6 @@
                 "x": 640,
                 "y": -320
               }
-            ],
-            "labels": [
-              "Lists Events"
             ]
           },
           {
@@ -662,6 +652,9 @@
               "threats": []
             },
             "id": "109380a5-6d23-465a-8c35-9ac472f628f8",
+            "labels": [
+              "Requests Events"
+            ],
             "source": {
               "x": 690,
               "y": -240
@@ -675,9 +668,6 @@
                 "x": 660,
                 "y": -200
               }
-            ],
-            "labels": [
-              "Requests Events"
             ]
           },
           {
@@ -712,6 +702,9 @@
               "threats": []
             },
             "id": "65ab31c7-3b46-46cf-b33f-be94e2cf832f",
+            "labels": [
+              "Sends Events to Database"
+            ],
             "source": {
               "x": 130,
               "y": -320
@@ -725,9 +718,6 @@
                 "x": 130,
                 "y": -260
               }
-            ],
-            "labels": [
-              "Sends Events to Database"
             ]
           },
           {
@@ -762,6 +752,9 @@
               "threats": []
             },
             "id": "99c7ced8-c016-4d0f-834b-100b099d0d9c",
+            "labels": [
+              "Sends Advertisements to Database"
+            ],
             "source": {
               "x": 1090,
               "y": -90
@@ -779,9 +772,6 @@
                 "x": 1000,
                 "y": -100
               }
-            ],
-            "labels": [
-              "Sends Advertisements to Database"
             ]
           },
           {
@@ -816,6 +806,9 @@
               "threats": []
             },
             "id": "339ea7d9-21bf-4b13-b0c1-c5adcaba3050",
+            "labels": [
+              "Displays Advertisements"
+            ],
             "source": {
               "cell": "ef1f6804-d2db-4eb2-91d6-7ed8ab743816"
             },
@@ -827,9 +820,6 @@
                 "x": 780,
                 "y": -210
               }
-            ],
-            "labels": [
-              "Displays Advertisements"
             ]
           },
           {
@@ -864,6 +854,9 @@
               "threats": []
             },
             "id": "5f1591c5-8a9c-4057-9177-297178aa8d50",
+            "labels": [
+              "Sends Processed Events"
+            ],
             "source": {
               "x": 420,
               "y": -180
@@ -877,9 +870,6 @@
                 "x": 450,
                 "y": -200
               }
-            ],
-            "labels": [
-              "Sends Processed Events"
             ]
           },
           {
@@ -914,6 +904,9 @@
               "threats": []
             },
             "id": "285139fc-ba8d-4fbe-a247-2493ee0379da",
+            "labels": [
+              "Sends Raw Event Data"
+            ],
             "source": {
               "x": 210,
               "y": -140
@@ -927,59 +920,6 @@
                 "x": 250,
                 "y": -110
               }
-            ],
-            "labels": [
-              "Sends Raw Event Data"
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "VIP Cookie",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "119f8e40-bf78-4aad-9925-0d38da087706",
-            "source": {
-              "x": 690,
-              "y": -390
-            },
-            "target": {
-              "x": 980,
-              "y": -390
-            },
-            "vertices": [
-              {
-                "x": 840,
-                "y": -410
-              }
-            ],
-            "labels": [
-              "VIP Cookie"
             ]
           },
           {
@@ -1014,6 +954,9 @@
               "threats": []
             },
             "id": "41659793-d74d-4d08-8688-58c2f2b63d8b",
+            "labels": [
+              "Sends Requests to Join Groups"
+            ],
             "source": {
               "x": 800,
               "y": -260
@@ -1021,10 +964,7 @@
             "target": {
               "x": 990,
               "y": -220
-            },
-            "labels": [
-              "Sends Requests to Join Groups"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -1058,6 +998,9 @@
               "threats": []
             },
             "id": "4cde9b74-7567-4184-9dde-8ca5abe4fdd7",
+            "labels": [
+              "Sends Group Information"
+            ],
             "source": {
               "x": 1000,
               "y": -250
@@ -1065,10 +1008,7 @@
             "target": {
               "x": 800,
               "y": -280
-            },
-            "labels": [
-              "Sends Group Information"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -1102,6 +1042,9 @@
               "threats": []
             },
             "id": "64ba797e-d4ef-4a88-a508-47393a1ded6b",
+            "labels": [
+              "Sends Listed VIP Features as Options"
+            ],
             "source": {
               "x": 1000,
               "y": -350
@@ -1109,10 +1052,7 @@
             "target": {
               "x": 790,
               "y": -290
-            },
-            "labels": [
-              "Sends Listed VIP Features as Options"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -1146,6 +1086,9 @@
               "threats": []
             },
             "id": "5106692b-ca16-4d75-b6e6-5a5eef9fb8d7",
+            "labels": [
+              "Payment Requests"
+            ],
             "source": {
               "x": 790,
               "y": -270
@@ -1159,9 +1102,6 @@
                 "x": 1110,
                 "y": -300
               }
-            ],
-            "labels": [
-              "Payment Requests"
             ]
           },
           {
@@ -1196,6 +1136,9 @@
               "threats": []
             },
             "id": "e6909584-2992-4315-b7e2-32ee2444a8a1",
+            "labels": [
+              "Payment Success/Failure"
+            ],
             "source": {
               "cell": "0bfd7154-53bc-4a50-ac5a-149fdd8edc9e"
             },
@@ -1208,9 +1151,6 @@
                 "x": 990,
                 "y": -460
               }
-            ],
-            "labels": [
-              "Payment Success/Failure"
             ]
           },
           {
@@ -1274,6 +1214,9 @@
               "threats": []
             },
             "id": "35429268-44d8-4af0-8683-6d292ff97f4a",
+            "labels": [
+              "Sends Payment Completion Result"
+            ],
             "source": {
               "x": 1250,
               "y": -510
@@ -1281,10 +1224,7 @@
             "target": {
               "x": 1240,
               "y": -360
-            },
-            "labels": [
-              "Sends Payment Completion Result"
-            ]
+            }
           },
           {
             "shape": "flow",
@@ -1318,6 +1258,9 @@
               "threats": []
             },
             "id": "3558cf8f-bc3b-4c8e-a92a-f06f7ad2f913",
+            "labels": [
+              "Payment Request"
+            ],
             "source": {
               "x": 1270,
               "y": -360
@@ -1335,9 +1278,6 @@
                 "x": 1420,
                 "y": -410
               }
-            ],
-            "labels": [
-              "Payment Request"
             ]
           },
           {
@@ -1401,6 +1341,9 @@
               "threats": []
             },
             "id": "e89a63f9-1e29-46ef-a515-e3c21d35d8f2",
+            "labels": [
+              "Sends Ads to App"
+            ],
             "source": {
               "x": 850,
               "y": -80
@@ -1409,13 +1352,64 @@
               "x": 820,
               "y": -130
             },
-            "labels": [
-              "Sends Ads to App"
-            ],
             "vertices": [
               {
                 "x": 810,
                 "y": -100
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "VIP Cookie",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "119f8e40-bf78-4aad-9925-0d38da087706",
+            "labels": [
+              "VIP Cookie"
+            ],
+            "source": {
+              "x": 690,
+              "y": -390
+            },
+            "target": {
+              "x": 980,
+              "y": -390
+            },
+            "vertices": [
+              {
+                "x": 810,
+                "y": -410
+              },
+              {
+                "x": 840,
+                "y": -410
               }
             ]
           },
@@ -1433,24 +1427,42 @@
                 "text": "Event Organizers"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
-            "id": "25c0b1be-cdd7-4246-aaff-244d6ef4f2fe",
             "zIndex": 11,
+            "id": "25c0b1be-cdd7-4246-aaff-244d6ef4f2fe",
             "data": {
               "type": "tm.Actor",
               "name": "Event Organizers",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Spoofing/Impersonation",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Malicious Actors could spoof Event Organizers through phishing or other social engineering methods.",
+                  "mitigation": "2FA and MFA access alongside strict governance set for individuals in these roles for the app",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -1467,27 +1479,49 @@
                 "text": "Login Procedures"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
-            "id": "0af75bdf-295c-4b26-afab-cffbe5803b9e",
             "zIndex": 12,
+            "id": "0af75bdf-295c-4b26-afab-cffbe5803b9e",
             "data": {
               "type": "tm.Process",
               "name": "Login Procedures",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "VIP Cookie Access",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Unauthorized individuals who are not VIPS could change or alter scripts entered into Login Procedures to give themselves VIP access which allow certain features",
+                  "mitigation": "Apply stricter session management and apply secure, http only cookies to protect access and prevent session tokens from lingering.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
             }
           },
           {
@@ -1516,8 +1550,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "de43e81c-1ff3-4249-af0d-137d9309796f",
             "zIndex": 13,
+            "id": "de43e81c-1ff3-4249-af0d-137d9309796f",
             "data": {
               "type": "tm.Store",
               "name": "Attendees Database",
@@ -1543,11 +1577,37 @@
                   "new": false,
                   "number": 1,
                   "score": ""
+                },
+                {
+                  "id": "d33f4d62-1883-42f7-9580-a9e71d5f28db",
+                  "title": "Unauthorized Access",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "description": "Unauthorized Access to the database allows malicious actors to steal personal information in regards to attendees of the event.",
+                  "mitigation": "Encryption of User Data, Proper Access Control, and have a dedicated team to moderate the database throughout the event.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "318dd7b8-9363-4a96-ad46-a6d0077fb72f",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 4,
+                  "score": ""
                 }
               ],
               "threatFrequency": {
-                "tampering": 1,
-                "repudiation": 0,
+                "tampering": 3,
+                "repudiation": 2,
                 "informationDisclosure": 0,
                 "denialOfService": 0
               }
@@ -1574,8 +1634,8 @@
             },
             "visible": true,
             "shape": "actor",
-            "id": "7d2f1cd3-4891-43aa-9512-2f3fab49d72b",
             "zIndex": 14,
+            "id": "7d2f1cd3-4891-43aa-9512-2f3fab49d72b",
             "data": {
               "type": "tm.Actor",
               "name": "Advertisers",
@@ -1601,78 +1661,48 @@
                 "text": "Advertisements API"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              }
-            },
-            "visible": true,
-            "shape": "process",
-            "id": "ef1f6804-d2db-4eb2-91d6-7ed8ab743816",
-            "zIndex": 15,
-            "data": {
-              "type": "tm.Process",
-              "name": "Advertisements API",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "handlesCardPayment": false,
-              "handlesGoodsOrServices": false,
-              "isWebApplication": false,
-              "privilegeLevel": "",
-              "threats": []
-            }
-          },
-          {
-            "position": {
-              "x": 338,
-              "y": -524
-            },
-            "size": {
-              "width": 112.5,
-              "height": 60
-            },
-            "attrs": {
-              "text": {
-                "text": "Malicious Actor"
-              },
-              "body": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
-            "shape": "actor",
-            "id": "b87e884e-fe69-4cbe-9385-d16d9514d6dc",
-            "zIndex": 16,
+            "shape": "process",
+            "zIndex": 15,
+            "id": "ef1f6804-d2db-4eb2-91d6-7ed8ab743816",
             "data": {
-              "type": "tm.Actor",
-              "name": "Malicious Actor",
+              "type": "tm.Process",
+              "name": "Advertisements API",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "providesAuthentication": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
               "threats": [
                 {
-                  "id": "c1fa897a-7d10-4648-9dc2-31c297e3ef47",
-                  "title": "Hijacker",
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Unauthorized Access",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Spoofing",
-                  "description": "Will Attempt to Steal Login Information",
-                  "mitigation": "2FA or MFA required",
+                  "type": "Tampering",
+                  "description": "Unauthorized Access to the Advertisements API could allow a malicious actor to upload their own advertisements (such as ransomware or scripts) that could harm customers. Or, even moreso, a group could delete advertising from the application which would harm the business",
+                  "mitigation": "Moderation, and limited access of the API to restrict certain behavior leading up to the event.",
                   "modelType": "STRIDE",
                   "new": false,
-                  "number": 1,
+                  "number": 5,
                   "score": ""
                 }
               ],
               "threatFrequency": {
-                "spoofing": 2,
-                "repudiation": 0
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
               }
             }
           },
@@ -1697,8 +1727,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "954167db-2769-4e1b-b436-ec8bc1d9b1e1",
             "zIndex": 17,
+            "id": "954167db-2769-4e1b-b436-ec8bc1d9b1e1",
             "data": {
               "type": "tm.Process",
               "name": "VIP Features",
@@ -1734,8 +1764,8 @@
             },
             "visible": true,
             "shape": "process",
-            "id": "0242140e-af36-4e59-9cf4-2b31624cf7db",
             "zIndex": 18,
+            "id": "0242140e-af36-4e59-9cf4-2b31624cf7db",
             "data": {
               "type": "tm.Process",
               "name": "Groups Feature",
@@ -1764,27 +1794,49 @@
                 "text": "Payment Methods/Tickets"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
-            "id": "0bfd7154-53bc-4a50-ac5a-149fdd8edc9e",
             "zIndex": 19,
+            "id": "0bfd7154-53bc-4a50-ac5a-149fdd8edc9e",
             "data": {
               "type": "tm.Process",
               "name": "Payment Methods/Tickets",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Fraudulant Payment",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Malicious Actors could try and abuse the payment process to make fraudulent purchases, such as excess tickets/VIP access, etc. ",
+                  "mitigation": "Have compliance for payment methods utilizing card information and apply strict rules on the frame of payment options available.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1811,8 +1863,8 @@
             },
             "visible": true,
             "shape": "store",
-            "id": "2019fff2-5bc3-457c-b1e5-55ea8a25dfc0",
             "zIndex": 20,
+            "id": "2019fff2-5bc3-457c-b1e5-55ea8a25dfc0",
             "data": {
               "type": "tm.Store",
               "name": "Payment Processing",
@@ -1833,6 +1885,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 2
+    "threatTop": 10
   }
 }
