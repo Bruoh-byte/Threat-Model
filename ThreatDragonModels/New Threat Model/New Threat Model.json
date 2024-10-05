@@ -68,8 +68,8 @@
                 "text": "Central App Menu"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -83,12 +83,34 @@
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "0fd22def-8bf6-4615-b360-9eb186924e7d",
+                  "title": "Injection",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Malicious Actors could try and abuse the central app itself to try and find sources to inject code/scripts that could disclose information of users, location, groups, etc",
+                  "mitigation": "Validate all information, Ensure queries to each database used throughout the app follow strict guidelines. Remove any unnecessary sources of input to utilize the Event App.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1885,6 +1907,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "",
-    "threatTop": 10
+    "threatTop": 11
   }
 }
